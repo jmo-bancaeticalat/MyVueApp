@@ -1,5 +1,7 @@
 
 <script setup>
+import { ref } from 'vue';
+
   const text = 'dinámico!';
   const StyleBackground = 'Background: red';
   const activo = true;
@@ -28,6 +30,23 @@
 
   ];
 
+const objetoFruta = {
+    name:'Manzana',
+    price: '$1.00',
+    description: 'Una manzana',
+    id: '1'
+  };
+
+// Variable reactiva
+let counter = ref(0);
+
+const incrementar = () => {
+  counter.value++;
+}
+const restar = () => {
+  counter.value--;
+}
+
 
 </script>
 <template>
@@ -55,15 +74,28 @@
 
   <!-- En el v-for usado en un objeto se usa el atributo 'key' para el elemento unico que no se debe de repetir  -->
   <!-- Ademas mostramos los elementos de los objetos  -->
-  <h3>Obejeto listado por key</h3>
+  <h3>Array de objetos listado por key</h3>
   <ul>
     <li v-for="tiendaFrutas in arrayTiendaFrutas" :key="tiendaFrutas.id">
       {{ tiendaFrutas.name }} - {{ tiendaFrutas.price }} - {{ tiendaFrutas.description }}
     </li>
   </ul>
 
-</template>
+  <!-- En v-for en OBJETOS  -->
+  <h3>Objetos listado</h3>
+  <ul>
+    <li v-for="(value, propiedad, index) in objetoFruta" :key="value">
+      {{ index }} - {{ propiedad }} : {{ value }}
+    </li>
+  </ul>
 
+
+  <hr>
+  <h2>{{ counter }}</h2>
+  <button @click="incrementar">Incrementar</button>
+  <button @click="restar">Restar</button>
+</template>
+  
 <style>
   h1 {
     color: aqua;
