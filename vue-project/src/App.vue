@@ -4,7 +4,8 @@
   import Bind from './components/Bind.vue';
   import Vif from './components/Vif.vue'
   import Vfor from './components/Vfor.vue'
-  import Ref from './components/Ref.vue'
+  import Counter from './components/Counter.vue'
+  import ToDo from './components/ToDo.vue'
 </script>
 <template>
 
@@ -12,7 +13,8 @@
   <!-- <Bind /> -->
   <!-- <Vif/> -->
   <!-- <Vfor /> -->
-  <Ref />
+  <!-- <Counter /> -->
+  <ToDo />
 
 
 
