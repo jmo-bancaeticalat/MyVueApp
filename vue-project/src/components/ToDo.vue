@@ -41,6 +41,5 @@
         arrayToDo.value.splice(index,1 );
     };
 
-
 </script>
 

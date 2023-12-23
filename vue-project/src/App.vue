@@ -6,6 +6,7 @@
   import Vfor from './components/Vfor.vue'
   import Counter from './components/Counter.vue'
   import ToDo from './components/ToDo.vue'
+  import Calculadora from './components/Calculadora.vue';
 </script>
 <template>
 
@@ -14,8 +15,8 @@
   <!-- <Vif/> -->
   <!-- <Vfor /> -->
   <!-- <Counter /> -->
-  <ToDo />
-
+  <!-- <ToDo /> -->
+  <Calculadora/>
 
 
 </template>
