@@ -7,7 +7,9 @@
   import Counter from './components/Counter.vue'
   import ToDo from './components/ToDo.vue'
   import Calculadora from './components/Calculadora.vue';
+  import WorldClock from './components/WorldClock.vue';
 </script>
+
 <template>
 
   <!-- <Mustage/>   -->
@@ -16,8 +18,8 @@
   <!-- <Vfor /> -->
   <!-- <Counter /> -->
   <!-- <ToDo /> -->
-  <Calculadora/>
-
+  <!-- <Calculadora/> -->
+  <WorldClock />
 
 </template>
   
