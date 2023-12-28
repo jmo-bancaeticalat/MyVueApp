@@ -17,9 +17,9 @@
   <!-- <Vif/> -->
   <!-- <Vfor /> -->
   <!-- <Counter /> -->
-  <!-- <ToDo /> -->
+  <ToDo />
   <!-- <Calculadora/> -->
-  <WorldClock />
+  <!-- <WorldClock /> -->
 
 </template>
   

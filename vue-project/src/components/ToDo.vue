@@ -1,45 +1,53 @@
-<template>
-    <h1>What do you need to do?</h1>
-    <input id="task" type="text" v-model="task">
-    <button @click="addTask" >Add</button>
-
-    <h2>To do:</h2>
-    <ul>
-        <li 
-            v-for="(task, index) in arrayToDo" 
-            :key="index"
-            :style="marginX"> 
-            {{ task }}
-            <button @click="deletTask(index)">X</button>
-        </li>
-    </ul>
-</template>
 <script setup>
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue'
 
-    const marginX = 'margin: 10px 0 ;';
+    let id = 0
 
-    // valor del input
-    const task = ref('');
+    const newTodo = ref('')
+    const hideCompleted = ref(false)
+    const todos = ref([
+    { id: id++, text: 'Learn HTML', done: true },
+    { id: id++, text: 'Learn JavaScript', done: true },
+    { id: id++, text: 'Learn Vue', done: false }
+    ])
 
-    // lista de tasks
-    const arrayToDo = ref([]);
+    const filteredTodos = computed(() => {
+    return hideCompleted.value
+        ? todos.value.filter((t) => !t.done)
+        : todos.value
+    })
 
+    function addTodo() {
+    todos.value.push({ id: id++, text: newTodo.value, done: false })
+    newTodo.value = ''
+    }
 
-    const addTask = () => {
-        // Si en el valor del input, sin espacios (trim), es difetente a '' empieza la logica
-        if (task.value.trim() !== ''){
-            // Empuja el valor del input dentro del array
-            arrayToDo.value.push(task.value);
-            // Limpia el valor del input
-            task.value = ''; 
-        };
-    };
-
-    // elimina la tarea del array del index especifico donde se encuentra
-    const deletTask = (index) => {
-        arrayToDo.value.splice(index,1 );
-    };
-
+    function removeTodo(todo) {
+    todos.value = todos.value.filter((t) => t !== todo)
+    }
 </script>
 
+<template>
+    <h1>What do you need to do?</h1>
+    <form @submit.prevent="addTodo">
+        <input v-model="newTodo">
+        <button>Add Todo</button>
+    </form>
+    <h2>To do:</h2>
+    <ul>
+        <li v-for="todo in filteredTodos" :key="todo.id">
+        <input type="checkbox" v-model="todo.done">
+        <span :class="{ done: todo.done }">{{ todo.text }}</span>
+        <button @click="removeTodo(todo)">X</button>
+        </li>
+    </ul>
+    <button @click="hideCompleted = !hideCompleted">
+        {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+    </button>
+</template>
+
+<style>
+    .done {
+    text-decoration: line-through;
+    }
+</style>

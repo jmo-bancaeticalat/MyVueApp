@@ -14,6 +14,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const timezones = [
   { name: 'Buenos Aires', offset: -3, currentTime: ref(new Date()) },
   { name: 'Chicago', offset: -6, currentTime: ref(new Date()) },
+  {name: 'Chile', offset: -3, currentTime: ref(new Date())},
   { name: 'Ciudad de México', offset: -6, currentTime: ref(new Date()) },
   { name: 'Dubái', offset: 4, currentTime: ref(new Date()) },
   { name: 'Hong Kong', offset: 8, currentTime: ref(new Date()) },
