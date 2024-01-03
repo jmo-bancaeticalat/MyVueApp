@@ -8,6 +8,7 @@
   import ToDo from './components/ToDo.vue'
   import Calculadora from './components/Calculadora.vue';
   import WorldClock from './components/WorldClock.vue';
+  import Pinea from './components/Pinea.vue'
 </script>
 
 <template>
@@ -17,9 +18,10 @@
   <!-- <Vif/> -->
   <!-- <Vfor /> -->
   <!-- <Counter /> -->
-  <ToDo />
+  <!-- <ToDo /> -->
   <!-- <Calculadora/> -->
   <!-- <WorldClock /> -->
+  <Pinea />
 
 </template>
   
